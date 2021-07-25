@@ -9,9 +9,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
 import GroupIcon from '@material-ui/icons/Group';
 import TodayIcon from '@material-ui/icons/Today';
 import ExtensionIcon from '@material-ui/icons/Extension';
+import{Link} from "react-router-dom"; // giving it an "active" class while jumping from page to page => getting notifications of the current position
 
 const useStyles = makeStyles({
   list: {
@@ -22,7 +24,9 @@ const useStyles = makeStyles({
   },
 });
 
-function Navigation() {
+
+function Navigation(propsRoutes) {
+
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false,
@@ -46,15 +50,16 @@ function Navigation() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Calendar','Members', 'Activities'].map((text, index) => (
-          <ListItem button key={text}>
+        {propsRoutes.routes.map((mapped, index) => (
+          <ListItem component={Link} to={mapped.path} exact button key={mapped.name}>
             <ListItemIcon>
-              { index === 0 ? <TodayIcon />
-              : index === 1 ? <GroupIcon /> 
+              { index === 0 ? <HomeIcon />
+              : index === 1 ? <TodayIcon /> 
+              : index === 2 ? <GroupIcon /> 
               : <ExtensionIcon /> 
               }
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={mapped.name} />
           </ListItem>
         ))}
       </List>
