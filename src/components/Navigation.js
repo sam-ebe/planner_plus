@@ -51,7 +51,7 @@ function Navigation(propsRoutes) {
     >
       <List>
         {propsRoutes.routes.map((mapped, index) => (
-          <ListItem component={Link} to={mapped.path} exact button key={mapped.name}>
+          <ListItem component={Link} to={mapped.path} button key={mapped.name}>
             <ListItemIcon>
               { index === 0 ? <HomeIcon />
               : index === 1 ? <TodayIcon /> 
