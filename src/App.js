@@ -20,7 +20,7 @@ const listRoutes = routes.map(({path, name, Component}, index) => {
         <div className="page">
           {console.log()}
           <Title name={name}/>
-          <Component/>
+          <Component />
         </div>
       </Route>
   )
@@ -31,6 +31,7 @@ const listRoutes = routes.map(({path, name, Component}, index) => {
       <Navigation routes={routes}/>
       <div className="container">
         {listRoutes}
+        
       </div>
     </>
   );

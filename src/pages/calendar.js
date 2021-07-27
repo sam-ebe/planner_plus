@@ -1,10 +1,11 @@
-import React from 'react'
-
+import React from 'react';
+import LayoutCard from '../components/LayoutCard';
+import TodayIcon from '@material-ui/icons/Today';
 function Calendar() {
   return (
-    <div>
-      Calendar page
-    </div>
+    <div className='centerCard'>
+      <LayoutCard icon={<TodayIcon />}></LayoutCard>
+    </div>  
   )
 }
 
