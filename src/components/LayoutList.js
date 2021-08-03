@@ -7,7 +7,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import FolderIcon from '@material-ui/icons/Folder';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,46 +14,49 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     maxWidth: 752,
   },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
-  },
   title: {
     margin: theme.spacing(4, 0, 2),
   },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
+  text: {
+    margin: theme.spacing(0, 0, 0, 2),
+  }
 }));
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
-
-export default function LayoutList() {
+export default function LayoutList({infos}) {
   const classes = useStyles();
   
   return (
     <div className={classes.root}>
-      <div className={classes.demo}>
+      <div>
         <List>
-          {generate(
-            <ListItem>
+          {infos.map((element, index) => (
+            <ListItem key={index}>
               <ListItemAvatar>
-                <Avatar>
-                  <FolderIcon />
+                <Avatar 
+                className={classes.large}
+                src={element.image}
+                >
+
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary="Activity"
+                primary={element.name}
+                className={classes.text}
               />
               <ListItemSecondaryAction>
                 <IconButton edge="end" aria-label="delete">
                   <DeleteIcon />
                 </IconButton>
               </ListItemSecondaryAction>
-            </ListItem>,
-          )}
+            </ListItem>
+
+          ))
+
+          }
         </List>
       </div>
     </div>

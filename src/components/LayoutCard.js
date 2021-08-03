@@ -49,8 +49,10 @@ function LayoutCard({icon, content}) {
         //subheader="September 14, 2020"
       />
       <Divider variant="middle"/>
-      <br/>
-      {content}
+      <div className="listWrapper">
+        {content}
+      </div>
+      
     </Card>
   );
 }
