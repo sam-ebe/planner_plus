@@ -32,7 +32,7 @@ const useStyles = makeStyles((/*theme*/) => ({
   }
 }));
 
-function LayoutCard({icon}) {
+function LayoutCard({icon, content}) {
   const classes = useStyles();
 
 
@@ -46,10 +46,11 @@ function LayoutCard({icon}) {
       <CardHeader
         className={classes.title}
         title="Manage members"
-        //subheader="September 14, 2016"
+        //subheader="September 14, 2020"
       />
       <Divider variant="middle"/>
       <br/>
+      {content}
     </Card>
   );
 }
