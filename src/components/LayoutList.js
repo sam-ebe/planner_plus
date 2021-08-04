@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LayoutList({ infos }) {
   const classes = useStyles();
-  const handleEdit = () => {
-    alert("clicked");
+  const handleEdit = (index) => {
+    alert("clicked : " + index);
   };
   return (
     <div className={classes.root}>
@@ -47,17 +47,21 @@ export default function LayoutList({ infos }) {
                 className={classes.text}
                 // play w/ these properties + readOnly to switch between edit/read mode
                 //label={element.name}
-                //variant="outlined"
+                variant="outlined"
                 placeholder={element.name}
                 defaultValue={element.name}
                 InputProps={{
                   readOnly: true,
-                  disableUnderline: true,
+                  //disableUnderline: true,
                 }}
               />
               <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="edit">
-                  <EditIcon onClick={handleEdit} />
+                <IconButton
+                  edge="end"
+                  aria-label="edit"
+                  onClick={() => handleEdit(index)}
+                >
+                  <EditIcon />
                 </IconButton>
                 <IconButton edge="end" aria-label="delete">
                   <DeleteIcon />
