@@ -6,9 +6,8 @@ import Avatar from "@material-ui/core/Avatar";
 //import { red } from '@material-ui/core/colors';
 import { Divider } from "@material-ui/core";
 
-const useStyles = makeStyles((/*theme*/) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: "90vw",
     display: "flex",
     flexDirection: "column",
     margin: "0 5vw 0 5vw",
